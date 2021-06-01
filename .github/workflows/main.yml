@@ -2,13 +2,13 @@
 
 name: React App Deploy to Surge
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [main]
   pull_request:
-    branches: [ master ]
+    branches: [main]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -24,18 +24,18 @@ jobs:
 
       - name: Install NodeJS
         uses: actions/setup-node@v2-beta
-        with: 
+        with:
           node-version: 14
-          
+
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install # will run 'yarn install' command
-        
+
       - name: Build React App
         run: sudo yarn build
-          
+
       - name: Install Surge
         run: npm install -g surge
-          
+
       - name: Deploy to Surge
         run: surge ./build react-tracker-app-sajid.surge.sh --token ${{secrets.SURGE_TOKEN}}
