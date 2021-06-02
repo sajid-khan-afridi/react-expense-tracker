@@ -1,10 +1,18 @@
-import logo from "./logo.svg";
+
 import "./App.css";
+
+//Import Components
+import {Header} from "./components/Header";
+
+
+
 
 function App() {
   return (
     <div>
-      <h2>hello world 1</h2>
+      <Header/>
+
+
     </div>
   );
 }
