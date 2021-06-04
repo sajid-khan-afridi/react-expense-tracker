@@ -1,5 +1,8 @@
-
+import React from "react";
 import "./App.css";
+
+//Import the Global Provider
+import {GlobalProvider} from './context/GlobalState'
 
 //Import Components
 import {Header} from "./components/Header";
@@ -11,7 +14,7 @@ import {AddTransaction} from "./components/AddTransaction"
 
 function App() {
   return (
-    <div>
+    <GlobalProvider>
       <Header/>
       <div className="container">
       <Balance/>
@@ -20,7 +23,7 @@ function App() {
       <AddTransaction />
       </div>
 
-    </div>
+    </GlobalProvider>
   );
 }
 
